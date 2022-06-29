@@ -1,23 +1,25 @@
 {
-  "name": "cms",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^5.0.1",
-    "ejs": "^3.1.8",
-    "express": "^4.18.1",
-    "mysql2": "^2.3.3",
-    "nodemon": "^2.0.18",
-    "passport": "^0.6.0",
-    "sequelize": "^6.21.2"
-  },
-  "devDependencies": {
-    "sequelize-cli": "^6.4.1"
-  }
+    "name": "cms",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "dotenv": "^16.0.1",
+        "ejs": "^3.1.8",
+        "express": "^4.18.1",
+        "mysql2": "^2.3.3",
+        "nodemon": "^2.0.18",
+        "passport": "^0.6.0",
+        "sequelize": "^6.21.2"
+    },
+    "devDependencies": {
+        "sequelize-cli": "^6.4.1"
+    }
 }
