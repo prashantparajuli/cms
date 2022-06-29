@@ -1,0 +1,53 @@
+<%- include('../includes/head.ejs') %>
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+
+<body>
+<h1>Register</h1>
+<form action="/users/register" method="POST">
+  <div>
+    <label for="name">Name</label>
+    <input
+      type="name"
+      id="name"
+      name="name"
+      placeholder="Enter your beautiful name"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="name">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="Enter your email"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="name">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      placeholder="Enter your secret Password"
+      required
+    />
+  </div>  
+  
+  <div>
+    <label for="name">Phone</label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      placeholder="Enter your Phone Number"
+      required
+    />
+  </div>
+  <button type="submit">Register</button>
+</form>
+<%- include('../includes/end.ejs') %>

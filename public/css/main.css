@@ -1,0 +1,244 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    transition: var(--transition);
+    font-family: var(--font);
+}
+
+:root{
+    --primaryColor: #253E72;
+    --mainOrange: #F38E42;
+    --mainWhite: #f3f3f3;
+    --font: 'Poppins', sans-serif;
+    --transition: transform 0.2s ease-in;
+}
+
+.form-container {
+    background-color: var(--primaryColor);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    background-color: var(--mainWhite);
+    width: 80%;
+    height: 50%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.input-group{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.textbox {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    background-color: #f3f3f3;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.textbox::placeholder{
+    font-family: var(--font);
+}
+
+.btn{
+    background-color: var(--mainOrange);
+    width: 80%;
+    border-radius: 5px;
+    padding: 10px 0 10px 0;
+    border: 0;
+    margin-top: 10px;
+    font-family: var(--font);
+    font-size: 16px;
+    color: var(--mainWhite);
+}
+
+.btn:hover{
+  cursor: pointer;
+}
+
+.login-btn{
+    align-self: center;
+}
+
+/*Nav css*/
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 9vh;
+    font-family: var(--font);
+    background-color: var(--primaryColor);
+    width: 100vw;
+    padding: 0 10px 0 10px;
+  }
+  
+  .brand {
+    color: rgb(226, 226, 226);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+    justify-self: flex-start;
+  }
+  
+  .nav-link {
+    position: absolute;
+    top: 6vh;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primaryColor);
+    width: 45%;
+    min-height: 94vh;
+    transform: translateX(-100%);
+    transition: var(--transition);
+    margin: 10px 0;
+    border-radius: 3px;
+    padding: 10px;
+    z-index: 10000;
+  }
+  
+  .nav-link li {
+    list-style: none;
+  }
+  .nav-link a {
+    color: rgb(226, 226, 226);
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .burger{
+    display: flex;
+    margin-left: 10px;
+  }
+
+  .burger div .line{
+    width: 25px;
+    height: 2px;
+    background-color: rgb(226, 226, 226);
+    margin: 6px;
+  }
+
+  .brand {
+      margin-left: 10px;
+  }
+  
+  .nav-link-active {
+    transform: translateX(0%);
+  }
+  .user-info{
+    display: none;
+    color: var(--mainWhite);
+  }
+  .burger:hover{
+    cursor: pointer;
+  }
+
+
+/* end nav css*/
+
+/* main content container */
+/* 
+.sidebar-open{
+  transform: translateX(45%);
+  transition: var(--transition);
+} */
+
+/*co-wrokers css*/
+.coworker-container{
+  display: grid;
+}
+
+.card{
+  background-color: #e5e5e5;
+  margin: 5px 10px;
+  padding:10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+}
+
+.employee-image{
+  height: 80px;
+  width:80px;
+  border-radius: 40px;
+  align-self: center;
+}
+
+.card-content{
+  padding: 5px;
+}
+
+.text-group{
+  display: flex;
+  justify-content: space-around;
+}
+
+.text-group p {
+  text-align: left;
+}
+
+@media screen and (min-width: 572px){
+    .login-form{
+        width: 60%
+    }
+    .user-info{
+      display: block;
+    }
+    .nav-link{
+      width: 40%;
+    }
+    .sidebar-open{
+      transform: translateX(40%);
+      transition: var(--transition);
+    } 
+
+}
+
+@media screen and (min-width: 768px){
+    .login-form{
+        width: 40%;
+    }
+    .nav-link{
+        width: 30%;
+    }
+    .sidebar-open{
+      transform: translateX(30%);
+      transition: var(--transition);
+    } 
+
+}
+
+@media screen and (min-width: 992px){
+    .login-form{
+        width: 30%;
+    }
+    .nav-link{
+      width: 20%;
+    }
+    .sidebar-open{
+      transform: translateX(20%);
+      transition: var(--transition);
+    }
+}
