@@ -1,19 +1,19 @@
 <%- include('../includes/head.ejs') %>
-  </head>
+    </head>
 
-  <body>
-    <div class="form-container">
-      <form action="/users/login" method="POST" class="login-form">
-        <div class="input-group">
-          <!-- <label for="name">Email</label> -->
-          <input type="email" id="email" name="email" placeholder="Email*" class="textbox" required />
-        </div>
+    <body>
+        <div class="form-container">
+            <form action="/login" method="POST" class="login-form">
+                <div class="input-group">
+                    <!-- <label for="name">Email</label> -->
+                    <input type="email" id="email" name="email" placeholder="Email*" class="textbox" required />
+                </div>
 
-        <div class="input-group">
-          <!-- <label for="name">Password</label> -->
-          <input type="password" id="password" name="password" placeholder="Password*" class="textbox" required />
+                <div class="input-group">
+                    <!-- <label for="name">Password</label> -->
+                    <input type="password" id="password" name="password" placeholder="Password*" class="textbox" required />
+                </div>
+                <button type="submit" class="btn login-btn">Login</button>
+            </form>
         </div>
-        <button type="submit" class="btn login-btn">Login</button>
-      </form>
-    </div>
-    <%- include('../includes/end.ejs') %>
+        <%- include('../includes/end.ejs') %>
