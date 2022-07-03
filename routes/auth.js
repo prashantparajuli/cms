@@ -6,10 +6,36 @@ const passport = require('passport');
 
 router.get('/login', authController.login);
 
-router.post('/login', passport.authenticate('local-signin', {
+router.post('/login', passport.authenticate('local', {
     successRedirect: '/dashboard',
+    failureRedirect: '/login',
+    failureFlash: true
+}))
 
-    failureRedirect: '/login'
-}));
+router.get('/register', authController.register)
+
+
+
+router.delete('/logout', (req, res) => {
+    req.logOut()
+    res.redirect('../auth/login')
+})
+
+
+// function checkAuthenticated(req, res, next) {
+//     if (req.isAuthenticated()) {
+//         return next()
+//     }
+
+//     res.redirect('/login')
+// }
+
+// function checkNotAuthenticated(req, res, next) {
+//     if (req.isAuthenticated()) {
+//         return res.redirect('/')
+//     }
+//     next()
+// }
+
 
 module.exports = router;
