@@ -1,0 +1,50 @@
+Office management system::
+
+User :: id, name, contactinfo(email, phone), password, gender,role
+Department :: id, name, info, no.of employee
+project :: id, name, description
+
+no users, admin manually creates user:: create api to add users
+
+
+
+
+sequelize cmds:::
+Initialize sequelize
+npx sequelize-cli init
+
+Create database
+npx sequelize-cli db:create
+
+Create model
+npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
+
+create migration
+npx sequelize-cli migration:generate --name create-new-field
+
+Need to run migration for changes
+npx sequelize-cli db:migrate
+
+Create Seeder
+npx sequelize-cli seed:generate --name create-new-user
+
+run seeder
+npx sequelize-cli db:seed:all
+
+//connect to database
+const dbConnector = ()=>{
+  console.log("might get stuck here")
+  db.sequelize.authenticate().then(()=>{
+    console.log("mysql connected");
+  }).catch(err=>{
+    console.log("Error connecting to db: ", err);
+  }) 
+}
+
+dbConnector();
+
+
+Urls:
+
+Sequelize queries : https://sequelize.org/docs/v6/core-concepts/model-querying-basics/
+QueryInterface for migration: https://sequelize.org/api/v6/class/src/dialects/abstract/query-interface.js~queryinterface
