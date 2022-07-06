@@ -1,6 +1,7 @@
 const LocalStrategy = require('passport-local').Strategy;
 const { User } = require('../models');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken')
 
 function initialize(passport) {
     const authenticateUser = async(email, password, done) => {
@@ -28,6 +29,7 @@ function initialize(passport) {
             } else {
                 return done(null, user);
             };
+
 
         } catch (err) {
             return done(err)
