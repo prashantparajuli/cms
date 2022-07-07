@@ -1,13 +1,15 @@
 Office management system::
 
 User :: id, name, contactinfo(email, phone), password, gender,role
-Department :: id, name, info, no.of employee
-project :: id, name, description
+Department :: id, name, info, no.of employee  :: Prashant ::crud for department
+project :: id, name, description  :: Sandhya ::crud for project
 
-no users, admin manually creates user:: create api to add users
+no user registration, admin manually creates user:: create api to add users
 
+Todo:: update department wala garna xa / findOne
+       Project CRUD
 
-
+TASK:: Download and setup PGAdmin
 
 sequelize cmds:::
 Initialize sequelize
