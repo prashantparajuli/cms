@@ -33,8 +33,6 @@ exports.getOneDepartment = (req, res) => {
     })
 }
 exports.updateDepartment = async(req, res) => {
-
-        console.log(req.body)
         const dept = req.body;
         Department.update(dept, { where: { id: req.params.id } }).then((result) => {
             req.flash('info', 'updated successfully');

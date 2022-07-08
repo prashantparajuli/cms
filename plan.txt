@@ -6,10 +6,14 @@ project :: id, name, description  :: Sandhya ::crud for project
 
 no user registration, admin manually creates user:: create api to add users
 
-Todo:: update department wala garna xa / findOne
-       Project CRUD
+Todo:: update department wala garna xa / findOne(done)
+       Project CRUD(done)
 
-TASK:: Download and setup PGAdmin
+       Learn about sequelize association
+
+TASK:: Download and setup PostgreSQL(done)
+       New model to store department and user_id || for project
+       add/remove user to department || for project
 
 sequelize cmds:::
 Initialize sequelize
