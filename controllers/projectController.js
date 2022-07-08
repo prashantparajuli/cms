@@ -17,7 +17,8 @@ exports.getAddProject = (req, res) => {
 exports.addProject = (req, res) => {
     const data = req.body;
     Project.create(data).then((result) => {
-        res.send(result);
+        req.flash('info', 'project added successfully');
+        res.redirect('/project');
     }).catch((error) => {
         console.log(error)
     })
