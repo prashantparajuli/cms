@@ -10,7 +10,7 @@
                             <p>Edit Project</p>
                             <form action="/edit-project/<%= data.id %>" method="POST">
                                 <input type="text" name="name" value="<%= data.name %>">
-                                <input type="text" name="info" value="<%= data.description %>">
+                                <input type="text" name="description" value=" <%=data.description %>">
                                 <button type="submit">Save Changes</button>
                                 <button type="reset">Reset</button>
                             </form>

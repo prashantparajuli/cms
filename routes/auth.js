@@ -13,8 +13,8 @@ router.post('/login', passport.authenticate('local', {
 }))
 
 router.get('/register', authController.register)
-
-
+router.get('/user', authController.getUser);
+router.post('/user', authController.addUser);
 
 router.delete('/logout', (req, res) => {
     req.logOut()

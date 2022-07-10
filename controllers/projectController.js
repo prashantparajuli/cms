@@ -35,20 +35,20 @@ exports.getOneProject = (req, res) => {
         console.log(error)
     })
 }
-exports.updateProject = async(req, res) => {
+exports.updateProject = (req, res) => {
 
-    console.log(req.body)
-    const proj = req.body;
-    Project.update(proj, { where: { id: req.params.id } }).then((result) => {
-        req.flash('info', 'updated successfully');
-        res.redirect('/project');
-    }).catch((error) => {
-        req.flash('error', error)
-    })
-},
-exports.deleteProject = (req, res) => {
-    Project.destroy({ where: { id: req.params.id } }).then((data) => {
-        req.flash('info', 'deleted successfully');
-        res.redirect('/project');
-    })
-}
+        console.log(req.body)
+        const proj = req.body;
+        Project.update(proj, { where: { id: req.params.id } }).then((result) => {
+            req.flash('info', 'updated successfully');
+            res.redirect('/project');
+        }).catch((error) => {
+            req.flash('error', error)
+        })
+    },
+    exports.deleteProject = (req, res) => {
+        Project.destroy({ where: { id: req.params.id } }).then((data) => {
+            req.flash('info', 'deleted successfully');
+            res.redirect('/project');
+        })
+    }
