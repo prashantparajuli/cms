@@ -8,7 +8,8 @@ exports.getAddProject = (req, res) => {
     exports.viewProject = (req, res) => {
         Project.findAll().then((data) => {
             if (!data) return req.flash('info', 'No data for project');
-            res.render('./admin/project/view-project', { data: data })
+            res.render('./admin/project/view-project', { data: data });
+            //res.json({ data: data });
         }).catch((error) => {
             console.log(error)
         })
@@ -19,6 +20,7 @@ exports.addProject = (req, res) => {
     Project.create(data).then((result) => {
         req.flash('info', 'project added successfully');
         res.redirect('/project');
+        //res.json({ message: 'project added successfully', result: result });
     }).catch((error) => {
         console.log(error)
     })

@@ -1,0 +1,41 @@
+<%- include('../../../includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../../../includes/navigation.ejs')%>
+            <main id="main">
+                <p>view department member</p>
+                <table border="1px">
+                    <tr>
+                        <th>SN</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Department</th>
+                        <th>Action</th>
+                    </tr>
+                    <% for(var i = 0; i < data.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%=i+1 %>
+                            </td>
+                            <td>
+                                <%= data[i]?.user?.firstName %>
+                            </td>
+                            <td>
+                                <%= data[i]?.user?.lastName %>
+                            </td>
+                            <td>
+                                <%= data[i]?.department?.name %>
+                            </td>
+                            <td>
+                                <a href="/department/delete-department-member/<%= data[i].id %>">Delete</a>
+                            </td>
+                        </tr>
+
+                        <% } %>
+
+                </table>
+
+            </main>
+    </body>
+    <%- include('../../../includes/end.ejs') %>
