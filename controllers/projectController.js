@@ -6,9 +6,9 @@ exports.getAddProject = (req, res) => {
     },
 
     exports.viewProject = (req, res) => {
-        Project.findAll().then((data) => {
-            if (!data) return req.flash('info', 'No data for project');
-            res.render('./admin/project/view-project', { data: data })
+    Project.findAll().then((data) => {
+        if (!data) return req.flash('info', 'No data for project');
+        res.render('./admin/project/view-project', { data: data })
         }).catch((error) => {
             console.log(error)
         })

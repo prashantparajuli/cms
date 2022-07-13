@@ -4,4 +4,5 @@ module.exports = {
     departmentMemberController: require('./departmentMemberController'),
     dashboardController: require('./dashboardController'),
     projectController: require('./projectController'),
+    projectMemberController: require('./projectMemberController')
 }
