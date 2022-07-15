@@ -8,9 +8,8 @@
                 <table border="1px">
                     <tr>
                         <th>SN</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
                         <th>Department</th>
+                        <th>Members</th>
                         <th>Action</th>
                     </tr>
                     <% for(var i = 0; i < data.length; i++) { %>
@@ -19,16 +18,17 @@
                                 <%=i+1 %>
                             </td>
                             <td>
-                                <%= data[i]?.user?.firstName %>
-                            </td>
-                            <td>
-                                <%= data[i]?.user?.lastName %>
-                            </td>
-                            <td>
                                 <%= data[i]?.department?.name %>
                             </td>
                             <td>
-                                <a href="/department/delete-department-member/<%= data[i].id %>">Delete</a>
+                                <ol>
+                                    <li>
+                                        <%= data[i]?.user?.firstName %>
+                                    </li>
+                                </ol>
+                            </td>
+                            <td>
+                                <a href="/delete-department-member/<%= data[i].id %>">Delete</a>
                             </td>
                         </tr>
 

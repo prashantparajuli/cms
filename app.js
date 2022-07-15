@@ -7,6 +7,8 @@ const passport = require('passport');
 const session = require('express-session');
 const flash = require('express-flash');
 
+const { CustomError } = require("./helpers")
+
 const initializePassport = require('./middlewares/passportAuth');
 initializePassport(passport);
 
@@ -32,6 +34,11 @@ app.get('/', (req, res) => {
 })
 require('./config').dbConnector();
 
+app.use("*", (req, res, next) => {
+    return next(new CustomError(`${req.originalUrl} not found`, 404))
+})
+
+app.use(require("./middlewares").errorHandler)
 
 app.listen(process.env.PORT, () => {
     console.log('server running on localhost:3000');

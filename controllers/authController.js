@@ -27,6 +27,13 @@ module.exports = {
         }).catch((error) => {
             res.send(error);
         })
+    },
+    getUserById: async(req, res) => {
+        await User.findOne({ where: { id: req.params.id } }).then((data) => {
+            res.status(200).json({ data: data });
+        }).catch((error) => {
+            res.send(error);
+        })
     }
 
 }
