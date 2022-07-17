@@ -2,6 +2,7 @@ const { Department } = require('../models');
 
 exports.getAddDepartment = (req, res) => {
     res.render('./admin/department/add-department')
+
 }
 exports.addDepartment = (req, res) => {
     const dept = req.body

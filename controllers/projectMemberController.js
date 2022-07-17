@@ -1,6 +1,12 @@
 const { ProjectMember, Project, User } = require('../models');
 exports.addProjectMember = (req, res) => {
-    res.render('./admin/project/addproject-member')
+    Project.findAll().then((data) => {
+        User.findAll().then((result) => {
+            res.render('./admin/project/addproject-member', { data: data, result: result });
+        })
+    }).catch((error) => {
+        console.log(error);
+    })
 }
 exports.getProjectMember = async(req, res) => {
     const data = await Project.findAll({

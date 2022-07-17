@@ -9,8 +9,18 @@
                         <% } %>
                             <p>add department member</p>
                             <form action="/department-member" method="POST">
-                                <input type="number" name="deptId" placeholder="Department id*">
-                                <input type="number" name="userId" placeholder="User id*">
+                                <label for="department">Select department:</label>
+                                <select name="deptId" id="deptId">
+                                    <% data.forEach(function(data){ %>
+                                        <option value="<%= data.id %>"><%= data.name %></option>
+                                        <% }) %>
+                                </select><br>
+                                <label for="user">Select member:</label>
+                                <select name="userId" id="userId">
+                                    <% result.forEach(function(result){ %>
+                                        <option value="<%= result.id %>"><%= result.firstName %> <%= result.lastName %></option>
+                                        <% }) %>
+                                </select><br>
                                 <input type="submit" value="Add">
 
             </main>

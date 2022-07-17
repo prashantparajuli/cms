@@ -16,7 +16,17 @@ exports.getDepartmentMember = async(req, res) => {
         // res.json({ data: data });
 }
 exports.getAddDepartmentMember = async(req, res) => {
-    res.render('./admin/department/department-member/add-department-member');
+    Department.findAll().then((data) => {
+        console.log(data);
+        User.findAll().then((result) => {
+            console.log(result);
+            res.render('./admin/department/department-member/add-department-member', { data: data, result: result });
+        }).catch((error) => {
+            req.flash(error);
+        })
+    }).catch((error) => {
+        req.flash(error);
+    })
 }
 exports.postDepartmentMember = async(req, res) => {
     const data = req.body;
