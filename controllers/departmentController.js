@@ -16,8 +16,8 @@ exports.addDepartment = (req, res) => {
 exports.getDepartment = (req, res) => {
     Department.findAll().then((data) => {
         console.log(data);
-        res.json({ data: data })
-            // res.render('./admin/department/view-department', { data: data })
+        // res.json({ data: data })
+        res.render('./admin/department/view-department', { data: data })
     }).catch((error) => {
         console.log(error)
     })

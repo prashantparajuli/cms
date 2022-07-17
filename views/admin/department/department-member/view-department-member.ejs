@@ -10,29 +10,35 @@
                         <th>SN</th>
                         <th>Department</th>
                         <th>Members</th>
-                        <th>Action</th>
+                        <!-- <th>Action</th> -->
                     </tr>
-                    <% for(var i = 0; i < data.length; i++) { %>
+                    <% data.forEach(function(data, i){ %>
                         <tr>
                             <td>
-                                <%=i+1 %>
+                                <%= i+1 %>
                             </td>
-                            <td>
-                                <%= data[i]?.department?.name %>
-                            </td>
-                            <td>
-                                <ol>
-                                    <li>
-                                        <%= data[i]?.user?.firstName %>
-                                    </li>
-                                </ol>
-                            </td>
-                            <td>
-                                <a href="/delete-department-member/<%= data[i].id %>">Delete</a>
-                            </td>
-                        </tr>
 
-                        <% } %>
+                            <td>
+                                <%= data.name %>
+                            </td>
+
+                            <td>
+                                <% data.departmentMember.forEach(function(departmentMember){ %>
+                                    <ol>
+                                        <li>
+                                            <%= departmentMember.user.firstName %>
+                                                <%= departmentMember.user.lastName %>
+                                                    <a href="/delete-department-member/<%= departmentMember.user.id%>">Remove</a>
+                                        </li>
+                                    </ol>
+                                    <% }) %>
+                            </td>
+
+                            <!-- <td>
+                                <a href="/delete-department-member/<%= data.id %>">Delete</a>
+                            </td> -->
+                        </tr>
+                        <% }) %>
 
                 </table>
 

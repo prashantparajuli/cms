@@ -12,7 +12,8 @@ exports.getDepartmentMember = async(req, res) => {
             }]
         }]
     })
-    res.json({ data: data });
+    res.render('./admin/department/department-member/view-department-member', { data: data })
+        // res.json({ data: data });
 }
 exports.getAddDepartmentMember = async(req, res) => {
     res.render('./admin/department/department-member/add-department-member');
@@ -20,16 +21,16 @@ exports.getAddDepartmentMember = async(req, res) => {
 exports.postDepartmentMember = async(req, res) => {
     const data = req.body;
     DepartmentMember.create(data).then((result) => {
-        res.json({ message: 'added successfully', result });
-        // req.flash('info', 'department member added successfully');
-        // res.redirect('/department-member');
+        // res.json({ message: 'added successfully', result });
+        req.flash('info', 'department member added successfully');
+        res.redirect('/department-member');
     }).catch((error) => {
         req.flash('info', error)
     })
 
 }
-exports.deleteDepartmentMember = (req, res) => {
-    DepartmentMember.destroy({ where: { id: req.params.id } }).then((data) => {
+exports.deleteDepartmentMember = async(req, res) => {
+    DepartmentMember.destroy({ where: { userId: req.params.id } }).then((data) => {
         req.flash('info', 'deleted successfully');
         res.redirect('/department-member');
     })

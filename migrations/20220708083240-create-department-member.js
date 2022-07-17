@@ -11,18 +11,18 @@ module.exports = {
             deptId: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
-                references: {
-                    model: 'Department',
-                    key: 'id'
-                }
+                // references: {
+                //     model: 'Department',
+                //     key: 'id'
+                // }
             },
             userId: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
-                references: {
-                    model: 'User',
-                    key: 'id'
-                }
+                // references: {
+                //     model: 'User',
+                //     key: 'id'
+                // }
             },
             createdAt: {
                 allowNull: false,
