@@ -12,29 +12,33 @@
                                 <tr>
                                     <th>SN</th>
                                     <th>Project Name</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Action</th>
+                                    <th>Name</th>
+                                    <!-- <th>Last Name</th>
+                                    <th>Action</th> -->
                                 </tr>
-                                <% for(var i = 0; i < data.length; i++) { %>
+                                <% data.forEach(function(data, i){ %>
                                     <tr>
                                         <td>
-                                            <%=i+1%> 
+                                            <%= i+1 %>
                                         </td>
+
                                         <td>
-                                            <%= data[i]?.project?.name%>
+                                            <%= data.name %>
                                         </td>
+
                                         <td>
-                                            <%= data[i]?.user?.firstName %>
-                                        </td>
-                                        <td>
-                                            <%= data[i]?.user?.lastName %>
-                                        </td>
-                                        <td>
-                                            <a href="/delete-projectMember/<%= data[i].id %>">Delete</a>
+                                            <% data.projectMember.forEach(function(projectMember){ %>
+                                                <ol>
+                                                    <li>
+                                                        <%= projectMember.user.firstName %>
+                                                            <%= projectMember.user.lastName %>
+                                                                <a href="/delete-project-member/<%= projectMember.user.id%>">Remove</a>
+                                                    </li>
+                                                </ol>
+                                                <% }) %>
                                         </td>
                                     </tr>
-                                    <% } %>
+                                    <% }) %>
                                         <button onclick="window.location.href='addproject-member'">Add new</button>
             </main>
     </body>
