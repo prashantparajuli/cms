@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const { authController } = require('../controllers');
+const { loginValidator, checkErrors } = require('../validations');
 const passport = require('passport');
 
 
 router.get('/login', authController.login);
 
-router.post('/login', passport.authenticate('local', {
+router.post('/login', loginValidator, checkErrors, passport.authenticate('local', {
     successRedirect: '/dashboard',
     failureRedirect: '/login',
     failureFlash: true

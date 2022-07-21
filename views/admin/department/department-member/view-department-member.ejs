@@ -4,44 +4,47 @@
     <body>
         <%- include('../../../includes/navigation.ejs')%>
             <main id="main">
-                <p>view department member</p>
-                <table border="1px">
-                    <tr>
-                        <th>SN</th>
-                        <th>Department</th>
-                        <th>Members</th>
-                        <!-- <th>Action</th> -->
-                    </tr>
-                    <% data.forEach(function(data, i){ %>
-                        <tr>
-                            <td>
-                                <%= i+1 %>
-                            </td>
+                <% if(messages.info) { %>
+                    <%= messages.info %>
+                        <% } %>
+                            <p>view department member</p>
+                            <table border="1px">
+                                <tr>
+                                    <th>SN</th>
+                                    <th>Department</th>
+                                    <th>Members</th>
+                                    <!-- <th>Action</th> -->
+                                </tr>
+                                <% data.forEach(function(data, i){ %>
+                                    <tr>
+                                        <td>
+                                            <%= i+1 %>
+                                        </td>
 
-                            <td>
-                                <%= data.name %>
-                            </td>
+                                        <td>
+                                            <%= data.name %>
+                                        </td>
 
-                            <td>
-                                <% data.departmentMember.forEach(function(departmentMember){ %>
-                                    <ol>
-                                        <li>
-                                            <%= departmentMember.user.firstName %>
-                                                <%= departmentMember.user.lastName %>
-                                                    <a href="/delete-department-member/<%= departmentMember.user.id%>">Remove</a>
-                                        </li>
-                                    </ol>
-                                    <% }) %>
-                            </td>
+                                        <td>
+                                            <% data.departmentMember.forEach(function(departmentMember){ %>
+                                                <ol>
+                                                    <li>
+                                                        <%= departmentMember.user.firstName %>
+                                                            <%= departmentMember.user.lastName %>
+                                                                <a href="/delete-department-member/<%= data.id%>/<%= departmentMember.user.id%>">Remove</a>
+                                                    </li>
+                                                </ol>
+                                                <% }) %>
+                                        </td>
 
-                            <!-- <td>
+                                        <!-- <td>
                                 <a href="/delete-department-member/<%= data.id %>">Delete</a>
                             </td> -->
-                        </tr>
-                        <% }) %>
+                                    </tr>
+                                    <% }) %>
 
-                </table>
-                <button onclick="window.location.href='add-department-member'">Add new</button>
+                            </table>
+                            <button onclick="window.location.href='add-department-member'">Add new</button>
 
             </main>
     </body>

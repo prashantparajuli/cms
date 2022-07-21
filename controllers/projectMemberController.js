@@ -41,7 +41,7 @@ exports.postProjectMember = async(req, res) => {
 
 }
 exports.deleteProjectMember = (req, res) => {
-    ProjectMember.destroy({ where: { userId: req.params.id } }).then((data) => {
+    ProjectMember.destroy({ where: { projectId: req.params.pid, userId: req.params.uid } }).then((data) => {
         req.flash('info', 'deleted successfully');
         res.redirect('/project/project-member');
     })

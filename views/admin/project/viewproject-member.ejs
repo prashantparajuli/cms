@@ -32,7 +32,7 @@
                                                     <li>
                                                         <%= projectMember.user.firstName %>
                                                             <%= projectMember.user.lastName %>
-                                                                <a href="/delete-project-member/<%= projectMember.user.id%>">Remove</a>
+                                                                <a href="/delete-project-member/<%= data.id%>/<%= projectMember.user.id%>">Remove</a>
                                                     </li>
                                                 </ol>
                                                 <% }) %>

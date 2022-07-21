@@ -22,10 +22,10 @@ exports.getAddDepartmentMember = async(req, res) => {
             console.log(result);
             res.render('./admin/department/department-member/add-department-member', { data: data, result: result });
         }).catch((error) => {
-            req.flash(error);
+            req.flash('info', error);
         })
     }).catch((error) => {
-        req.flash(error);
+        req.flash('info', error);
     })
 }
 exports.postDepartmentMember = async(req, res) => {
@@ -40,7 +40,7 @@ exports.postDepartmentMember = async(req, res) => {
 
 }
 exports.deleteDepartmentMember = async(req, res) => {
-    DepartmentMember.destroy({ where: { userId: req.params.id } }).then((data) => {
+    DepartmentMember.destroy({ where: { deptId: req.params.did, userId: req.params.uid } }).then((data) => {
         req.flash('info', 'deleted successfully');
         res.redirect('/department-member');
     })

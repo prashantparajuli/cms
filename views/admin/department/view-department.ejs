@@ -4,34 +4,37 @@
     <body>
         <%- include('../../includes/navigation.ejs')%>
             <main id="main">
-                <p>view department</p>
-                <table border="1px">
-                    <tr>
-                        <th>SN</th>
-                        <th>Name</th>
-                        <th>Info</th>
-                        <th>Action</th>
-                    </tr>
-                    <% for(var i = 0; i < data.length; i++) { %>
-                        <tr>
-                            <td>
-                                <%=i+1 %>
-                            </td>
-                            <td>
-                                <%= data[i].name %>
-                            </td>
-                            <td>
-                                <%= data[i].info %>
-                            </td>
-                            <td>
-                                <a href="/edit-department/<%= data[i].id %>">Edit</a>
-                                <a href="/delete-department/<%= data[i].id %>">Delete</a>
-                            </td>
-                        </tr>
+                <% if(messages.info) { %>
+                    <%= messages.info %>
                         <% } %>
-                            <button onclick="window.location.href='add-department'">Add new</button>
-                            <button onclick="window.location.href='department-member'">View Department Member</button>
-                            <button onclick="window.location.href='add-department-member'">Add department Member</button>
+                            <p>view department</p>
+                            <table border="1px">
+                                <tr>
+                                    <th>SN</th>
+                                    <th>Name</th>
+                                    <th>Info</th>
+                                    <th>Action</th>
+                                </tr>
+                                <% for(var i = 0; i < data.length; i++) { %>
+                                    <tr>
+                                        <td>
+                                            <%=i+1 %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].name %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].info %>
+                                        </td>
+                                        <td>
+                                            <a href="/edit-department/<%= data[i].id %>">Edit</a>
+                                            <a href="/delete-department/<%= data[i].id %>">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                        <button onclick="window.location.href='add-department'">Add new</button>
+                                        <button onclick="window.location.href='department-member'">View Department Member</button>
+                                        <button onclick="window.location.href='add-department-member'">Add department Member</button>
             </main>
     </body>
     <%- include('../../includes/end.ejs') %>
